@@ -1,18 +1,16 @@
-import { Loader } from './components/Loader';
-import { ErrorMessage } from './components/ErrorMessage'
-import { Product } from './components/Product'
-import { useProducts } from './hooks/products';
+import {Route, Routes} from 'react-router-dom'
+import { Navigation } from './components/Navigation';
+import { AboutPage } from './pages/AboutPage';
+import { ProductPage } from './pages/ProductsPage';
 
 function App() {
-	const {products} = useProducts()
-
 	return (
 		<>
-		<div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-			{products.map(product => <Product product={product} key={product.id} />)}
-		</div>
-		<Loader />
-		<ErrorMessage />
+		<Navigation />
+		<Routes>
+			<Route path='/' element={ <ProductPage /> }/>
+			<Route path='/about' element={ <AboutPage /> }/>
+		</Routes>
 		</>
 	)
 }

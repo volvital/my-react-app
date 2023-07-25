@@ -1,7 +1,9 @@
-import { useProducts } from '../hooks/products';
 
-export function ErrorMessage() {
-	const { error } = useProducts()
+interface ErrorMessageProps {
+	error: string	
+}
+
+export function ErrorMessage({error}: ErrorMessageProps) {
 	return (
 		<p className=' text-center text-red-500'>{ error && `${error}` }</p>
 	)
