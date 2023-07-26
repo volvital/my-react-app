@@ -1,4 +1,3 @@
-
 interface ErrorMessageProps {
 	error: string	
 }

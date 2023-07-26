@@ -10,7 +10,7 @@ import { ModalContext } from '../context/ModalContext';
 import { useState } from "react"
 
 export function ProductPage() {
-	const {products, error, addProduct} = useProducts()
+	const {products, loading, error, addProduct} = useProducts()
 	const {modal, open, close} = useContext(ModalContext)
 	const [buttonVisible, setButtonVisible] = useState(true)
 
@@ -44,7 +44,7 @@ export function ProductPage() {
 					Add product
 			</button>}
 		</div>
-		<Loader />
+		<Loader loading={loading}/>
 		<ErrorMessage error={error}/>
 		</>
 	)
